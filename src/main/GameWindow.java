@@ -1,18 +1,24 @@
 package main;
 
 import javax.swing.JFrame;
-import java.awt.Dimension;
+
+import inputs.KeyboardInputs;
+
+
 public class GameWindow extends JFrame{
-    Dimension dimension = new Dimension(500, 500); //creating a 500X500 dimension object
-    public GameWindow(){
+    GamePanel gamePanel;
+    public GameWindow(GamePanel gamePanel){
+        this.gamePanel = gamePanel;
 
        //setting up the window
-       setSize(dimension); 
-       setResizable(false);
-       setLocationRelativeTo(null);
-       setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+       this.setResizable(false);
+       this.add(gamePanel);
+       this.pack();
+       this.setLocationRelativeTo(null);
+       this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+       this.addKeyListener(new KeyboardInputs(gamePanel));
+       
+       this.setVisible(true); //setting the window to be visible
 
-       //setting the window to be visible
-       setVisible(true); 
     }
 }
