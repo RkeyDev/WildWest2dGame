@@ -48,7 +48,7 @@ public class GamePanel extends JPanel {
         if(left){
             x-=speed; //move left
         }else if(right){
-            x+=speed;//move right
+            x+=speed;//move right 
         }
         if(up){
             y-=speed;// move up

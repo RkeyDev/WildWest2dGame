@@ -24,14 +24,18 @@ public class KeyboardInputs implements KeyListener{
         //Handle key presses
         switch(e.getKeyCode()){
             case KeyEvent.VK_W:
+            case KeyEvent.VK_UP:
                 gamePanel.setUp(true); //set the up direction to true
                 break;
+            case KeyEvent.VK_LEFT:
             case KeyEvent.VK_A:
                 gamePanel.setLeft(true);//set the left direction to true
                 break;
+            case KeyEvent.VK_DOWN:
             case KeyEvent.VK_S:
                 gamePanel.setDown(true);//set the down direction to true
                 break;
+            case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_D:
                 gamePanel.setRight(true);//set the right direction to true
                 break;
@@ -42,15 +46,19 @@ public class KeyboardInputs implements KeyListener{
     public void keyReleased(KeyEvent e) {
         //Handle key releasses
         switch(e.getKeyCode()){
+            case KeyEvent.VK_UP:
             case KeyEvent.VK_W:
                 gamePanel.setUp(false); //set the up direction to false
                 break;
+            case KeyEvent.VK_LEFT:
             case KeyEvent.VK_A:
                 gamePanel.setLeft(false);//set the left direction to false
                 break;
+            case KeyEvent.VK_DOWN:
             case KeyEvent.VK_S:
                 gamePanel.setDown(false);//set the down direction to false
                 break;
+            case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_D:
                 gamePanel.setRight(false);//set the right direction to false
                 break;
