@@ -32,7 +32,7 @@ public class GameWindow extends JFrame{
 
             @Override
             public void focusLost(FocusEvent e) {
-                //stopping the player from moving when we lose focus on the window
+                //stopping the player from moving when we lose focus on the window 
                 gamePanel.setUp(false);
                 gamePanel.setLeft(false);
                 gamePanel.setDown(false);

@@ -48,7 +48,7 @@ public class KeyboardInputs implements KeyListener{
         switch(e.getKeyCode()){
             case KeyEvent.VK_UP:
             case KeyEvent.VK_W:
-                gamePanel.setUp(false); //set the up direction to false
+                gamePanel.setUp(false); //set the up direction to false 
                 break;
             case KeyEvent.VK_LEFT:
             case KeyEvent.VK_A:
