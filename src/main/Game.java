@@ -19,10 +19,6 @@ public class Game implements Runnable{
     }
     //update the game 
     public void updateGame(){
-
-         
-        System.out.println(Player.animationTick);
-
         
         gamePanel.repaint();
     }

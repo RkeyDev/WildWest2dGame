@@ -9,20 +9,26 @@ import javax.swing.ImageIcon;
 import main.GamePanel;
 
 public class Player extends Entity{
-    //player movement
-    public static int animationTick = 0;
-    public static int animationIndex = 0;
+    //player animation handles
+    private int animationTick = 0;
+    private int animationIndex = 0;
+    private int animationSpeed = 20;
 
+    //player movement
     private float playerSpeed = 2.0f;
     private boolean left,right,up,down;
     private boolean movingLeft = false,movingUp = false,movingRight = false,movingDown = false;
+
+    //all player images
     private String frontIdle = "player-front-idle.png";
     private String backIdle = "player-back-idle.png";
     private String[] frontWalk = {"player-front-1.png","player-front-2.png"};
     private String[] backWalk = {"player-back-1.png","player-back-2.png"};
     private String[] rightWalk = {"player-right-1.png","player-right-2.png"};
     private String[] leftWalk = {"player-left-1.png","player-left-2.png"};
-    private String currentAnimation = frontIdle;
+
+
+    private String currentAnimation = frontIdle; //Set the current animation
 
 
     private Image playerImage;
@@ -58,7 +64,7 @@ public class Player extends Entity{
         movingRight = false;
         movingUp = false;
         movingDown = false;
-        
+
         //moving the character
         if(left){
             x-=playerSpeed; //move left
@@ -80,16 +86,18 @@ public class Player extends Entity{
             movingDown = true;//front walk animation
 
         }
-        animationTick++;
-        if(animationTick >20*2){
+
+        animationTick++; //Increase the animation tick
+        //Check if the animation tick reached to animationSpeed * playerSpeed
+        if(animationTick >animationSpeed*playerSpeed){
+            //change the animation index
             if(animationIndex !=1){
-                animationIndex = 1;
+                animationIndex = 1; 
             }else{
                 animationIndex = 0;
             }
-            animationTick = 0;
+            animationTick = 0; //Set the animation tick back to 0
         }
-        //System.out.println(movingLeft + " " +movingUp +" " +movingRight +" " +movingDown);
         if(movingLeft){
                 playerImage = new ImageIcon("src/res/" + leftWalk[animationIndex]).getImage();//left walk animation 
         }else if(movingUp){
