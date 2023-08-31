@@ -1,5 +1,9 @@
 package main;
 
+import java.awt.Graphics;
+
+import entities.Player;
+
 public class Game implements Runnable{
     GameWindow window;
     GamePanel gamePanel;
@@ -7,7 +11,6 @@ public class Game implements Runnable{
     private final int FPS_SET = 120;
     private Thread gameThread;
     private final int UPS_SET = 200;
-
     //initializing the game 
     public Game(){
         gamePanel = new GamePanel();
@@ -16,8 +19,15 @@ public class Game implements Runnable{
     }
     //update the game 
     public void updateGame(){
+
+         
+        System.out.println(Player.animationTick);
+
+        
         gamePanel.repaint();
     }
+
+
     //starting the game thread
     public void startingGameThread(){
         gameThread = new Thread(this);
@@ -42,32 +52,33 @@ public class Game implements Runnable{
 
         //Accumulated time for updates and frames
         double deltaU = 0;
-        //double deltaF = 0;
+        double deltaF = 0;
 
         //Main game loop
         while(true){
             //Get the current time in nanoseconds
             long currentTime = System.nanoTime();
+
             //Calculate the time elapsed since the previous iteration
             deltaU += (currentTime - previouseTime)/timePerUpdate;
-            //deltaF += (currentTime - previouseTime)/timePerFrame;
+            deltaF += (currentTime - previouseTime)/timePerFrame;
 
             //Update game logic if the time for an update has come
             previouseTime = currentTime;
             if(deltaU >= 1){
-                updateGame();
+                updateGame(); //Updates the game each iteration
                 updates++;
                 deltaU--;
             }
 
-            /* 
+            //Set the fps to 120
             if(deltaF >=1){
+                
                 deltaF--;
                 frames ++;
             }
-            */
-
-            //check and display FPS and UPS every second 
+            
+            //Check and display FPS and UPS every second 
             if(System.currentTimeMillis() - lastCheck >= 1000){
                 lastCheck = System.currentTimeMillis();
                 System.out.println("FPS: " + frames + " | UPS "+ updates);

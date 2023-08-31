@@ -3,14 +3,14 @@ package inputs;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import main.GamePanel;
+import entities.Player;
 
 public class KeyboardInputs implements KeyListener{
-    GamePanel gamePanel;
+    Player player;
 
-    //constructor that initialize the gamePanel object
-    public KeyboardInputs(GamePanel gamePanel){
-        this.gamePanel = gamePanel;
+    //constructor that initialize the Player object
+    public KeyboardInputs(Player Player){
+        this.player = Player;
     }
 
 
@@ -25,19 +25,21 @@ public class KeyboardInputs implements KeyListener{
         switch(e.getKeyCode()){
             case KeyEvent.VK_W:
             case KeyEvent.VK_UP:
-                gamePanel.setUp(true); //set the up direction to true
+                player.setUp(true); //Set the up direction to true
                 break;
             case KeyEvent.VK_LEFT:
             case KeyEvent.VK_A:
-                gamePanel.setLeft(true);//set the left direction to true
+                player.setLeft(true);//Set the left direction to true
+
+
                 break;
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_S:
-                gamePanel.setDown(true);//set the down direction to true
+                player.setDown(true);//Set the down direction to true
                 break;
             case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_D:
-                gamePanel.setRight(true);//set the right direction to true
+                player.setRight(true);//Set the right direction to true
                 break;
         }
     }
@@ -48,19 +50,19 @@ public class KeyboardInputs implements KeyListener{
         switch(e.getKeyCode()){
             case KeyEvent.VK_UP:
             case KeyEvent.VK_W:
-                gamePanel.setUp(false); //set the up direction to false 
+                player.setUp(false); //Set the up direction to false 
                 break;
             case KeyEvent.VK_LEFT:
             case KeyEvent.VK_A:
-                gamePanel.setLeft(false);//set the left direction to false
+                player.setLeft(false);//Set the left direction to false
                 break;
             case KeyEvent.VK_DOWN:
             case KeyEvent.VK_S:
-                gamePanel.setDown(false);//set the down direction to false
+                player.setDown(false);//Set the down direction to false
                 break;
             case KeyEvent.VK_RIGHT:
             case KeyEvent.VK_D:
-                gamePanel.setRight(false);//set the right direction to false
+                player.setRight(false);//Set the right direction to false
                 break;
         }
     }
